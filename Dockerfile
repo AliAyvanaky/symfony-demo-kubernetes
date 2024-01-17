@@ -19,7 +19,7 @@ FROM composer AS composer
 WORKDIR /var/www/html
 
 COPY composer.* /var/www/html/
-RUN composer install
+RUN composer update
 
 # Build actual image
 FROM php:7.2-apache
