@@ -19,8 +19,8 @@ FROM composer AS composer
 WORKDIR /var/www/html
 
 COPY composer.* /var/www/html/
-RUN composer update
-
+RUN composer config --no-plugins allow-plugins.symfony\/flex true && \
+    composer update
 # Build actual image
 FROM php:7.2-apache
 
